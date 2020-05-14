@@ -1,3 +1,6 @@
+<?php
+include '../connection/pdo_conn.php';
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -6,11 +9,16 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>nasa prva stranica</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
     </head>
     <body>
-        <div>Ovo je neki sadrzaj</div>
+        <?php
+        $stmt = $pdo->query("SELECT stud.mbrStud,imeStud, prezStud from stud LIMIT 10");
+while ($row = $stmt->fetch()) {
+    //var_dump($row);
+    echo $row['imeStud']."<br />\n";
+}
+        ?>
     </body>
 </html>
